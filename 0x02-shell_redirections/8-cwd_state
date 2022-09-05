@@ -1,19 +1,2 @@
 #!/bin/bash
-ls -la >> 8-cwd_state
-total 60
-drwxr-xr-x 2 root root 4096 Sep  5 15:30 .
-drwxr-xr-x 6 root root  124 Sep  5 05:29 ..
--rwxr--r-- 1 root root   30 Sep  5 14:25 0-hello_world
--rwxr-xr-x 1 root root   28 Sep  5 14:31 1-confused_smiley
--rwxr-xr-x 1 root root   28 Sep  5 14:53 2-hellofile
--rwxr--r-- 1 root root   39 Sep  5 14:56 3-twofiles
--rwxr--r-- 1 root root   29 Sep  5 15:02 4-lastlines
--rwxr--r-- 1 root root   29 Sep  5 15:04 5-firstlines
--rwxr-xr-x 1 root root   36 Sep  5 15:07 6-third_line
--rwxr-xr-x 1 root root  104 Sep  5 15:25 7-file
--rwxr-xr-x 1 root root   34 Sep  5 15:30 8-cwd_state
--rw-r--r-- 1 root root   12 Sep  5 15:24 \\*\\\"Best School\"\\\\\*$\\?\\*\\*\\*\\*\\*\:\)
--rw-r--r-- 1 root root   12 Sep  5 15:19 \\*\\\'"Best School"\\'\\\*$\\?\\*\\*\\*\\*\\*:)
--rw-r--r-- 1 root root   12 Sep  5 15:11 \\\'"Best School"\'\\$\?\\\\\*:)
--rw-r--r-- 1 root root   12 Sep  5 15:11 \\\'"Best School"\'\\$\?\\\\\*:)chmod
--rw-r--r-- 1 root root   94 Sep  5 07:00 README.md
+ls -la >> ls_cwd_content
