@@ -1,0 +1,59 @@
+What Happens When You Type "google.com" In Your Browser And Press "Enter"
+
+Before proceeding with this article, here are some concepts you need to be familiar with:
+Domain name, TLD
+What nameservers are.
+What is a web browser?
+What is DNS?
+What is a URL?
+What are IP addresses?
+What is a cache?
+What are port numbers?
+
+In Summary:
+When you type "google.com" or any URL (Uniform Resource Locator) in your browser and press "Enter", the URL (in our case https://google.com') gets converted into the IP address of a remote computer somewhere around the world and a HTTP connection is established with the computer which in turn returns a webpage to your browser.
+
+But what exactly happens under the hood?
+Well in actual sense what really happens within the milliseconds we wait is just amazing and can be broken down into various stages as follows
+- DNS Request and Resolution
+- TCP/IP Connection
+- Firewall
+- HTTPS/SSL
+- Load-balancing
+- Web server
+- Application server
+- Database
+Each of the above mentioned stages are worth discussing individually, but to keep this article a bit simple I'll just discuss everything together.
+
+Anytime you use your browser to access any website or domain name, your browser stores information concerning that domain name in its cache.
+The first thing that happens the momment you type "https://google.com" and press "Enter" is that your browser first searches it cache to see if it had previously visited "google.com". If your browser discovers that it had previously visited "google.com", it simply re-uses the IP address which was used for the previous connection. But, if after searching the cache, your browser didn't find anything related to "google.com", the next place it checks is the contents of the file '/etc/hosts' (on a linux machine) or 'C:\Windows\System32\drivers\etc\hosts' (on a windows pc). These files contain entries which map IP addresses to domain names. If after searching these files the browser doesn't find any entry for "google.com", your Operating System sends a DNS request to your ISP (Internet Service Provider) requesting for the IP address of "google.com". Your ISP then searches its cache for the IP address of "google.com". If your ISP doesn't find any entry for "googe.com" in its cache, it will then send a request to a root nameserver. The root nameserver responds with the address of a top-level domain (TLD) nameserver (such as `.com`, `.net`, `.tech`, `.org`, etc). Your ISP then sends a request to the TLD nameserver (in our own case it is `.com`). The TLD nameserver responds and sends the address of the the authoritative nameserver of "google.com" to your ISP. Your ISP then makes another request but, this time, to the authoritative nameserver of "google.com" which then responds and sends the IP address of "google.com" to your ISP. Your ISP then sends this IP address back to your computer. Your Operating System the receives this address and sends the address to your web browser.
+At this point your browser recieves the IP address of google.com and sends a request to the server which owns the IP address. The server processes the request and returns a webpage.
+
+
+After the DNS has done its work, your web browser now has the IP address of "google.com".
+For the sake of this article let us assume that the IP address of "google.com" is 11.202.133.44.
+Your web browser now tries to establish a TCP/IP (internet) connection with the server at the address 11.202.133.44 on port 80 (an unencrypted and insecure connection). The browser does this by sending a request to the server at the address 11.202.133.44. The server receives the request and sends back a message acknowledging your browser's request to establish a connection. This process is known as the `handshake` process. Once the handshake process is complete, the TCP/IP connection port changes from port 80 to port 443 (which is used for encrypted and secure connections). The traffic is then encrypted using [HTTPS/SSL certificate](hyperlink).
+
+After the `handshake` process is complete and the connection between your computer and the server is secure, the web server at 11.202.133.44 serves the requested webpage to your browser.
+
+Load-balancing
+A load balancer is basically, a dedicated device or software that distributes incoming network traffic across a group of servers or other resources.
+Its major function is to ensure that traffic is evenly distributed across the servers inorder to avoid overloading any single server or resource.
+
+A tech gaint like Google, which receives billions of website visitors a day, definately need a lot of servers to serve all these users efficiently. Therefore, setting up a load-balancer comes in quite handy just to ensure that some servers are not over-worked while others are under utilized.
+
+So, in the case of a browser trying to access "google.com", the load balancer would receive the incoming request from the browser and then forward it to one ot the servers in Google's data centres.
+
+Its is also important to note that some firewalls will only accepts traffic on port TCP/80 TCP/443
+
+Application Server
+In the processes discussed above, the webpages which are returned from the `web server` are usually static webpages (Plain text (HTML) files) hence, the need for an application server.
+The application server is used to handle dynamic content.
+Dynamic contents are contents which vary based on the query you put into the search engine
+
+The application server does this by querying a database, fetching the results from the database, creating the dynamic webpage based on the data fetched from the database and returning the dynamic webpage back to the web server. When the web server receives the data from the application server it adds the data to the response that is sent back to your browser. Your browser then uses this information to properly display the search results to you accordingly.
+
+Conclusion
+I hope that this brief article has given you more insight about what actually happens when you type http://google.com in your browser and hit "Enter".
+
+Thank you very much for reading.

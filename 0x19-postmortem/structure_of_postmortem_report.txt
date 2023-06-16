@@ -1,0 +1,40 @@
+A post mortem report is made up of five parts:
+1. An issue summary
+2. A timeline
+3. Root cause analysis
+4. Resolution and recovery
+5. Corrective and preventative measures.
+Lets review each of these parts in detail.
+
+
+Issue Summary
+- Short summary (5 sentences)
+- List the duration along with start and end times (including timezone)
+- State the impact (e.g `most user requests resulted in 500 errors, at peak 100%`)
+- Close with root cause
+
+
+Timeline
+- List the timezone
+- Covers the outage duration
+- When outage began
+- When staff was notified
+- Actions, events, ...
+- When service was restored
+
+
+Root Cause Analysis
+- Give a detailed explanation of event.
+- Do not sugarcoat.
+
+
+Resolution and Recovery
+- Give detailed explanation of actions taken (includes times).
+
+
+Corrective and Preventive Measures
+- Itemized lists of ways to prevent it from happenning again
+- What can we do better next time?
+
+Reference Link:
+[Google API Infrastructure Outage](https://developers.googleblog.com/2013/05/google-api-infrastructure-outage_3.html?m=1)

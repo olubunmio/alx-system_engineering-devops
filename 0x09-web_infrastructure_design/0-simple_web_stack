@@ -1,0 +1,35 @@
+https://github.com/alexUd01/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/0-simple_web_stack.jpg
+
+
+- A Server
+A server is a computer that provides services for other computers (clients) over a
+network.
+It is usually located in a data center.
+It can be physical or virtual.
+All servers actually run an operating system (OS)
+
+- Web Server
+A web server on the other hand is a software whose role is to serve webpages (which
+contain static contents) to other computers (clients) over a network.
+
+- Application Server
+Application server is different from web server in the sense that it computes dynamic
+content (unlike web server which serves static content) and passes the dynamic content
+to a web server which makes the content available to the client.
+
+- Database
+The role of the database in the above diagram is to reliably store the application data.
+
+- Domain Name System (DNS)
+The DNS is responsible for translating the record of a domain name into IP addresses.
+In the diagram www.foobar.com is an A record because it resolves to an IP address.
+
+
+- OTHER NOTES
+1. In the above diagram, the server is an SPOF (Single point of failure) because
+nothing is redundant in the set-up.
+2. As a result of this nature of setup, the website would be temporarily down when new
+code is deployed and the web server neets to be restarted.
+3. This infrastructure will not be able to handle traffic that would exceed the server
+capacity.
+4. The network protocol currently used in the overall setup is the TCP/IP suite.

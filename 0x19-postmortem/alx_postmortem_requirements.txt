@@ -1,0 +1,27 @@
+REQUIREMENTS:
+
+Issue Summary (that is often what executives wwill read) must contain:
+- Duration of the outage with start and end times (including timezone)
+- What was the impact (what service was down/slow? What were user experiencing? How many percentage of users were affected?)
+- What was the reoot cause
+
+
+Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
+- When was the issue detected.
+- How was the issue detected (monitoring alert, an engineer noticed something, a customer complained..).
+- Actions taken (what parts of the system were investigated, that were the assumptions on the root cause of the issue).
+- Misleading investigation/debugging paths that were taken.
+- How the incident was resolved.
+
+
+Root Cause and Resolution must contain:
+- Explain in detail what was causing the issue.
+- Explain in detail how the issue was fixed.
+
+
+Corrective and preventative measures must contain:
+- What are the things that can be improved/fixed (broadly speaking)
+- A list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory...)
+
+
+Brief and straight to the poin,bwtween 400 to 600 words

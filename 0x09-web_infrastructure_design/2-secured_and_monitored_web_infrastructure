@@ -1,0 +1,66 @@
+https://github.com/alexUd01/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/2-secured_and_monitored_web_infrastructure.jpg
+
+
+# Features from Task 0 (Please Check below for Task 1 and 2)
+
+- A Server
+A server is a computer that provides services for other computers (clients) over a
+network.
+It is usually located in a data center.
+It can be physical or virtual.
+All servers actually run an operating system (OS)
+
+- Web Server
+A web server on the other hand is a software whose role is to serve webpages (which
+contain static contents) to other computers (clients) over a network.
+
+- Application Server
+Application server is different from web server in the sense that it computes dynamic
+content (unlike web server which serves static content) and passes the dynamic content
+to a web server which makes the content available to the client.
+
+- Database
+The role of the database in the above diagram is to reliably store the application data.
+
+- Domain Name System (DNS)
+The DNS is responsible for translating the record of a domain name into IP addresses.
+In the diagram www.foobar.com is an A record because it resolves to an IP address.
+
+
+- OTHER NOTES
+1. In the above diagram, the server is an SPOF (Single point of failure) because
+nothing is redundant in the set-up.
+2. As a result of this nature of setup, the website would be temporarily down when new
+code is deployed and the web server neets to be restarted.
+3. This infrastructure will not be able to handle traffic that would exceed the server
+capacity.
+4. The network protocol currently used in the overall setup is the TCP/IP suite.
+
+
+
+
+# -------------------------------> Task 1
+
+- LOAD BALANCER
+The load balancer is configured to have an active-passive set-up. Therefore, the load
+balancer now will distribute traffic to the failover server in case if the first
+server is down.
+A point to note with the above ilustration is that the load balancer is still a single
+point of failure (SPOF).
+
+- MySQL
+As illustrated in the diagram provided by the link above, MySQL used replication to
+keep its data synchronized. The master database can accept read/write operations while
+the replica can only accept reads.
+
+
+
+# -----------------------------> Task 2
+
+# Firewall
+- It filters the network traffic going into a machine and out from the machine.
+
+# HTTPS ensures that the traffic is encrypted and cannot be read/understood by a middle-man in-between the server/client connection.
+
+# Monitoring
+It is used to monitor and check if something is broken/slow.

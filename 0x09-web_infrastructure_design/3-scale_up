@@ -1,0 +1,9 @@
+https://github.com/alexUd01/alx-system_engineering-devops/blob/master/0x09-web_infrastructure_design/3-scale_up.jpg
+
+
+
+# -------------------------------> Task 3
+
+- LOAD BALANCER
+The load balancer is configured as a cluster so that if one fails, the other takes
+over.

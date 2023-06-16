@@ -1,0 +1,34 @@
+The following is the incident report for the ALX Software Engineering Web Debugging Project 1 that occured on the ___________, 2023. We completely understand this service issue has impacted our valued developers and users, and we apologize to everyone who was affected.
+
+
+Issue Summary
+From 04:38PM to 05:07PM (UTC), requests to some of ALX web servers resulted in Connection Refused Error messages. Other ALX services that were dependent on those web servers returned errors or had reduced functionality. At its peak, the issue affected 30% of traffic to our web servcies. Users could continue to access certain services that run on seperate web servers. The root cause of this downtime was an inclomplete configuration change that introduced a bug in the server configuration files.
+
+
+Timeline (all times UTC)
+04:29PM - Web server configuration file updated but not properly linked
+04:38PM - Outage begins
+04:38PM - Users alerted ALX SWE team and investigation began
+04:52PM - Configuration file update was completed (with proper linking)
+04:54PM - Server restart begins
+05:07PM - 100% of traffic back online
+
+
+Root Cause and Resolution
+At 04:29PM UTC, an update was released to our production environment. Certain changes were made to the configuration files of the affected Nginx web servers (located at the /etc/nginx/sites-available/ directory). The configuration files present in the folder were deleted and replaced with their various updates. After the updates were made, the script that automated the update process failed to create the respective symbolic links to the updates in the /etc/nginx/sites-enabled/ directory. The bug quickly caused all of the affected web servers to begin issueing a connection refused error message to users who tried to access our web services.
+At 04:38PM UTC, users alerted our engineers who investigated and quickly resolved the issue by 04:52PM via a custom patch script that created new symbolic links to the updates to replaced the old ones in the /etc/nginx/sites-enabled/ directory.
+
+
+Corrective and Preventative Measures:
+In the last two hours, we've conducted an internal review and analysis of the outage. The following are actions we are taking to address the underlying causes of the issue and to help prevent reccurence and improve response times:
+- Create a custom patch to temporarily fix the issue.
+- Fix the underlying issue by updating the initial update script that caused the initial break in the production environment.
+- Improve process of auditing.
+- Develop better mechanism for quickly delivering status notification during incidents.
+
+We appreciate your patience and again apologize for the impact to you. We thank you for your continuous support
+
+Sincerely,
+
+
+AlX SE Team
